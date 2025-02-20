@@ -9,9 +9,6 @@ import { deepResearch, writeFinalReport } from "./deep-research.js";
 // Get the directory name of the current module
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
-// Load environment variables from .env.local
-config({ path: resolve(__dirname, '../.env.local') });
-
 // Helper function to log to stderr
 const log = (...args: any[]) => {
   process.stderr.write(args.map(arg => 
