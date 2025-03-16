@@ -4,6 +4,7 @@ import { compact } from 'lodash-es';
 import pLimit from 'p-limit';
 import { z } from 'zod';
 import fs from 'fs';
+import path from 'path';
 
 import { o3MiniModel, trimPrompt } from './ai/providers.js';
 import { systemPrompt } from './prompt.js';
@@ -51,31 +52,34 @@ async function generateSerpQueries({
   numQueries = 3,
   learnings,
   language,
+  researchPlan,
 }: {
   query: string;
   numQueries?: number;
   learnings?: string[];
   language?: string;
+  researchPlan?: string[];
 }): Promise<SerpQuery[]> {
-  logger.log('Generating SERP queries', { query, numQueries, learningsCount: learnings?.length });
+  logger.log('Generating SERP queries', { 
+    query, 
+    numQueries, 
+    learningsCount: learnings?.length,
+    planSteps: researchPlan?.length
+  });
   
   try {
     const res = await generateObject({
       model: o3MiniModel,
       system: systemPrompt(language),
       prompt: language === 'ru' 
-        ? `На основе следующего запроса пользователя сгенерируйте список поисковых запросов для исследования темы. Верните максимум ${numQueries} запросов, но можно меньше, если изначальный запрос понятен. Убедитесь, что каждый запрос уникален и не похож на другие: <prompt>${query}</prompt>\n\n${
+        ? `На основе следующего запроса пользователя и плана исследования сгенерируйте список поисковых запросов. Каждый запрос должен быть направлен на конкретный аспект исследования. Запросы должны быть максимально информативными и специфичными:\n\nЗапрос: ${query}\n\nПлан исследования:\n${researchPlan?.map((step, i) => `${i + 1}. ${step}`).join('\n')}\n\n${
           learnings
-            ? `Вот что мы уже узнали из предыдущего исследования, используйте эту информацию для генерации более конкретных запросов: ${learnings.join(
-                '\n',
-              )}`
+            ? `Вот что мы уже узнали из предыдущего исследования:\n${learnings.join('\n')}`
             : ''
         }`
-        : `Given the following prompt from the user, generate a list of SERP queries to research the topic. Return a maximum of ${numQueries} queries, but feel free to return less if the original prompt is clear. Make sure each query is unique and not similar to each other: <prompt>${query}</prompt>\n\n${
+        : `Based on the following user query and research plan, generate a list of search queries. Each query should target a specific aspect of the research. Queries should be as informative and specific as possible:\n\nQuery: ${query}\n\nResearch plan:\n${researchPlan?.map((step, i) => `${i + 1}. ${step}`).join('\n')}\n\n${
           learnings
-            ? `Here are some learnings from previous research, use them to generate more specific queries: ${learnings.join(
-                '\n',
-              )}`
+            ? `Here's what we've learned from previous research:\n${learnings.join('\n')}`
             : ''
         }`,
       schema: z.object({
@@ -84,12 +88,12 @@ async function generateSerpQueries({
             query: z.string(),
             researchGoal: z.string().optional(),
           }))
-          .describe(language === 'ru' ? `Список поисковых запросов, максимум ${numQueries}` : `List of search queries, max of ${numQueries}`),
+          .length(numQueries),
       }),
     });
 
     logger.log('Generated SERP queries', { queries: res.object.queries });
-    return res.object.queries.slice(0, numQueries);
+    return res.object.queries;
   } catch (error) {
     logger.error('Error generating SERP queries', error);
     throw error;
@@ -154,6 +158,46 @@ async function processSerpResult({
   }
 }
 
+// Add rate limiting configuration
+const ApiRateLimit = 15; // Keep below 20 requests per minute to be safe
+const rateLimiter = pLimit(1); // Only allow 1 concurrent request
+
+// Add state persistence
+interface ResearchState {
+  query: string;
+  learnings: string[];
+  visitedUrls: string[];
+  progress: ResearchProgress;
+  language?: string;
+  timestamp: number;
+}
+
+function saveResearchState(state: ResearchState) {
+  const session = ResearchSession.getInstance();
+  const stateFile = `research-${session.uuid}-state.json`;
+  fs.writeFileSync(stateFile, JSON.stringify(state, null, 2));
+  logger.log('Research state saved', { 
+    uuid: session.uuid,
+    stateFile,
+    learningsCount: state.learnings.length
+  });
+}
+
+function loadResearchState(uuid: string): ResearchState | null {
+  const stateFile = `research-${uuid}-state.json`;
+  if (fs.existsSync(stateFile)) {
+    const state = JSON.parse(fs.readFileSync(stateFile, 'utf-8'));
+    logger.log('Research state loaded', { 
+      uuid,
+      stateFile,
+      learningsCount: state.learnings.length
+    });
+    return state;
+  }
+  return null;
+}
+
+// Add rate limit handling to writeFinalReport
 export async function writeFinalReport({
   prompt,
   learnings,
@@ -167,57 +211,174 @@ export async function writeFinalReport({
 }) {
   const detectedLanguage = language || detectLanguage(prompt);
   
-  log('Writing final report with:', {
-    numLearnings: learnings.length,
-    numUrls: visitedUrls.length,
-    urls: visitedUrls,
-    language: detectedLanguage
-  });
+  try {
+    log('Writing final report with:', {
+      numLearnings: learnings.length,
+      numUrls: visitedUrls.length,
+      urls: visitedUrls,
+      language: detectedLanguage
+    });
 
-  const learningsString = trimPrompt(
-    learnings
-      .map(learning => `<learning>\n${learning}\n</learning>`)
-      .join('\n'),
-    150_000,
-  );
+    const learningsString = trimPrompt(
+      learnings
+        .map(learning => `<learning>\n${learning}\n</learning>`)
+        .join('\n'),
+      150_000,
+    );
 
-  const res = await generateObject({
-    model: o3MiniModel,
-    system: systemPrompt(detectedLanguage),
-    prompt: detectedLanguage === 'ru'
-      ? `На основе следующего запроса пользователя напишите итоговый отчет по теме, используя выводы из исследования. Сделайте его максимально подробным, стремитесь к 3 и более страницам, включите ВСЕ выводы из исследования:\n\n<prompt>${prompt}</prompt>\n\nВот все выводы из предыдущего исследования:\n\n<learnings>\n${learningsString}\n</learnings>`
-      : `Given the following prompt from the user, write a final report on the topic using the learnings from research. Make it as as detailed as possible, aim for 3 or more pages, include ALL the learnings from research:\n\n<prompt>${prompt}</prompt>\n\nHere are all the learnings from previous research:\n\n<learnings>\n${learningsString}\n</learnings>`,
-    schema: z.object({
-      reportMarkdown: z
-        .string()
-        .describe(detectedLanguage === 'ru' ? 'Итоговый отчет по теме в формате Markdown' : 'Final report on the topic in Markdown'),
-    }),
-  });
+    // Wrap the API call with rate limiting
+    const res = await rateLimiter(async () => {
+      // Add delay between requests to stay under rate limit
+      await new Promise(resolve => setTimeout(resolve, 60000 / ApiRateLimit));
+      
+      return generateObject({
+        model: o3MiniModel,
+        system: systemPrompt(detectedLanguage),
+        prompt: detectedLanguage === 'ru'
+          ? `На основе следующего запроса пользователя напишите итоговый отчет по теме, используя выводы из исследования. Сделайте его максимально подробным, стремитесь к 3 и более страницам, включите ВСЕ выводы из исследования:\n\n<prompt>${prompt}</prompt>\n\nВот все выводы из предыдущего исследования:\n\n<learnings>\n${learningsString}\n</learnings>`
+          : `Given the following prompt from the user, write a final report on the topic using the learnings from research. Make it as as detailed as possible, aim for 3 or more pages, include ALL the learnings from research:\n\n<prompt>${prompt}</prompt>\n\nHere are all the learnings from previous research:\n\n<learnings>\n${learningsString}\n</learnings>`,
+        schema: z.object({
+          reportMarkdown: z
+            .string()
+            .describe(detectedLanguage === 'ru' ? 'Итоговый отчет по теме в формате Markdown' : 'Final report on the topic in Markdown'),
+        }),
+      });
+    });
 
-  // Append the visited URLs section to the report with localized heading
-  const urlsHeading = detectedLanguage === 'ru' ? '## Источники' : '## Sources';
-  const urlsSection = `\n\n${urlsHeading}\n\n${visitedUrls.map(url => `- ${url}`).join('\n')}`;
-  return res.object.reportMarkdown + urlsSection;
+    // Append the visited URLs section to the report with localized heading
+    const urlsHeading = detectedLanguage === 'ru' ? '## Источники' : '## Sources';
+    const urlsSection = `\n\n${urlsHeading}\n\n${visitedUrls.map(url => `- ${url}`).join('\n')}`;
+    return res.object.reportMarkdown + urlsSection;
+  } catch (error) {
+    // Handle daily rate limit error
+    if (error instanceof Error && 
+        error.message.includes('Rate limit exceeded: free-models-per-day')) {
+      const session = ResearchSession.getInstance();
+      
+      // Save current state
+      saveResearchState({
+        query: prompt,
+        learnings,
+        visitedUrls,
+        progress: {
+          currentDepth: 1,
+          totalDepth: 1,
+          currentBreadth: 1,
+          totalBreadth: 1,
+          totalQueries: 1,
+          completedQueries: 0
+        },
+        language: detectedLanguage,
+        timestamp: Date.now()
+      });
+
+      // Return a temporary report
+      const tempReport = detectedLanguage === 'ru'
+        ? `# Промежуточный отчет\n\nИсследование было приостановлено из-за достижения дневного лимита запросов. Текущие результаты сохранены и могут быть использованы для продолжения исследования завтра.\n\n## Текущие выводы\n\n${learnings.map(l => `- ${l}`).join('\n')}\n\n## Источники\n\n${visitedUrls.map(url => `- ${url}`).join('\n')}`
+        : `# Interim Report\n\nResearch was paused due to reaching the daily rate limit. Current results have been saved and can be used to continue research tomorrow.\n\n## Current Findings\n\n${learnings.map(l => `- ${l}`).join('\n')}\n\n## Sources\n\n${visitedUrls.map(url => `- ${url}`).join('\n')}`;
+      
+      return tempReport;
+    }
+    throw error;
+  }
+}
+
+// Fixed research parameters
+const RESEARCH_CONFIG = {
+  depth: 3,
+  breadth: 3,
+  stepsCount: 8
+};
+
+async function generateResearchPlan({
+  query,
+  language,
+}: {
+  query: string;
+  language?: string;
+}): Promise<string[]> {
+  try {
+    // Wrap the API call with rate limiting
+    const res = await rateLimiter(async () => {
+      // Add delay between requests to stay under rate limit
+      await new Promise(resolve => setTimeout(resolve, 60000 / ApiRateLimit));
+      
+      return generateObject({
+        model: o3MiniModel,
+        system: systemPrompt(language),
+        prompt: language === 'ru'
+          ? `На основе запроса пользователя "${query}" составьте детальный план исследования из ${RESEARCH_CONFIG.stepsCount} шагов. План должен быть логически структурирован, каждый шаг должен углублять понимание темы. Не включайте общие или повторяющиеся шаги.`
+          : `Based on the user query "${query}", create a detailed research plan with ${RESEARCH_CONFIG.stepsCount} steps. The plan should be logically structured, each step should deepen the understanding of the topic. Do not include generic or repetitive steps.`,
+        schema: z.object({
+          steps: z.array(z.string()).length(RESEARCH_CONFIG.stepsCount)
+        }),
+      });
+    });
+
+    return res.object.steps;
+  } catch (error) {
+    if (error instanceof Error && 
+        error.message.includes('Rate limit exceeded: free-models-per-day')) {
+      // Return a basic research plan for temporary use
+      return language === 'ru'
+        ? [
+            'Основные концепции и определения',
+            'Исторический контекст',
+            'Современное состояние',
+            'Практическое применение',
+            'Проблемы и вызовы',
+            'Перспективы развития',
+            'Сравнительный анализ',
+            'Выводы и рекомендации'
+          ]
+        : [
+            'Core concepts and definitions',
+            'Historical context',
+            'Current state',
+            'Practical applications',
+            'Challenges and issues',
+            'Future perspectives',
+            'Comparative analysis',
+            'Conclusions and recommendations'
+          ];
+    }
+    throw error;
+  }
 }
 
 export async function deepResearch({
   query,
-  breadth,
-  depth,
   learnings = [],
   visitedUrls = [],
   onProgress,
   language,
+  resumeFromUuid,
 }: {
   query: string;
-  breadth: number;
-  depth: number;
   learnings?: string[];
   visitedUrls?: string[];
   onProgress?: (progress: ResearchProgress) => void;
   language?: string;
+  resumeFromUuid?: string;
 }): Promise<ResearchResult> {
   const session = ResearchSession.getInstance();
+  
+  // Try to load saved state if resumeFromUuid is provided
+  if (resumeFromUuid) {
+    const savedState = loadResearchState(resumeFromUuid);
+    if (savedState) {
+      logger.log('Resuming research from saved state', { 
+        uuid: resumeFromUuid,
+        savedLearnings: savedState.learnings.length
+      });
+      
+      // Use saved state
+      query = savedState.query;
+      learnings = savedState.learnings;
+      visitedUrls = savedState.visitedUrls;
+      language = savedState.language;
+    }
+  }
   
   // Detect language if not provided
   const detectedLanguage = language || detectLanguage(query);
@@ -227,165 +388,204 @@ export async function deepResearch({
     query
   });
 
-  logger.log('Starting research', { 
-    uuid: session.uuid,
-    query,
-    depth,
-    breadth,
-    language: detectedLanguage 
-  });
-
-  const progress: ResearchProgress = {
-    currentDepth: 1,
-    totalDepth: depth,
-    currentBreadth: 1,
-    totalBreadth: breadth,
-    totalQueries: 0,
-    completedQueries: 0,
-  };
-  
-  const reportProgress = (update: Partial<ResearchProgress>) => {
-    Object.assign(progress, update);
-    logger.log('Progress update', { 
-      currentProgress: progress,
-      update: update 
+  try {
+    // Generate and show research plan
+    const researchPlan = await generateResearchPlan({ query, language: detectedLanguage });
+    logger.log('Research plan', { 
+      uuid: session.uuid,
+      plan: researchPlan
     });
-    onProgress?.(progress);
-  };
 
-  const serpQueries = await generateSerpQueries({
-    query,
-    numQueries: breadth,
-    learnings,
-    language: detectedLanguage,
-  });
-  
-  reportProgress({
-    totalQueries: serpQueries.length,
-    currentQuery: serpQueries[0]?.query,
-    currentDepth: 1,
-    currentBreadth: 1
-  });
-  
-  const limit = pLimit(ConcurrencyLimit);
+    const progress: ResearchProgress = {
+      currentDepth: 1,
+      totalDepth: RESEARCH_CONFIG.depth,
+      currentBreadth: 1,
+      totalBreadth: RESEARCH_CONFIG.breadth,
+      totalQueries: RESEARCH_CONFIG.stepsCount,
+      completedQueries: 0,
+    };
+    
+    const reportProgress = (update: Partial<ResearchProgress>) => {
+      Object.assign(progress, update);
+      logger.log('Progress update', { 
+        currentProgress: progress,
+        update: update 
+      });
+      onProgress?.(progress);
+    };
 
-  const results = await Promise.all(
-    serpQueries.map(serpQuery =>
-      limit(async () => {
-        try {
-          const result = await firecrawl.search(serpQuery.query, {
-            timeout: 15000,
-            limit: 5,
-            scrapeOptions: { formats: ['markdown'] },
-          });
+    const serpQueries = await generateSerpQueries({
+      query,
+      numQueries: RESEARCH_CONFIG.breadth,
+      learnings,
+      language: detectedLanguage,
+      researchPlan,
+    });
+    
+    reportProgress({
+      totalQueries: serpQueries.length,
+      currentQuery: serpQueries[0]?.query,
+      currentDepth: 1,
+      currentBreadth: 1
+    });
+    
+    const limit = pLimit(ConcurrencyLimit);
 
-          // Collect URLs from this search
-          const newUrls = compact(result.data.map(item => item.url));
-          const newBreadth = Math.ceil(breadth / 2);
-          const newDepth = depth - 1;
-
-          const newLearnings = await processSerpResult({
-            query: serpQuery.query,
-            result,
-            numFollowUpQuestions: newBreadth,
-            language: detectedLanguage,
-          });
-          const allLearnings = [...learnings, ...newLearnings.learnings];
-          const allUrls = [...visitedUrls, ...newUrls];
-
-          if (newDepth > 0) {
-            logger.log('Starting deeper research', {
-              newDepth,
-              newBreadth,
-              currentQuery: serpQuery.query
-            });
-            
-            reportProgress({
-              currentDepth: Math.max(1, newDepth),
-              currentBreadth: Math.max(1, newBreadth),
-              currentQuery: serpQuery.query,
+    const results = await Promise.all(
+      serpQueries.map(serpQuery =>
+        limit(async () => {
+          try {
+            const result = await firecrawl.search(serpQuery.query, {
+              timeout: 15000,
+              limit: 5,
+              scrapeOptions: { formats: ['markdown'] },
             });
 
-            if (serpQuery.researchGoal) {
-              log(`Previous research goal: ${serpQuery.researchGoal}`);
-            }
+            // Collect URLs from this search
+            const newUrls = compact(result.data.map(item => item.url));
+            const newBreadth = Math.ceil(RESEARCH_CONFIG.breadth / 2);
+            const newDepth = RESEARCH_CONFIG.depth - 1;
 
-            const deeperResults = await deepResearch({
+            const newLearnings = await processSerpResult({
               query: serpQuery.query,
-              breadth: newBreadth,
-              depth: newDepth,
-              learnings: allLearnings,
-              visitedUrls: allUrls,
-              onProgress: (deepProgress) => {
-                reportProgress({
-                  ...deepProgress,
-                  currentQuery: serpQuery.query,
-                });
-              },
+              result,
+              numFollowUpQuestions: newBreadth,
               language: detectedLanguage,
             });
+            const allLearnings = [...learnings, ...newLearnings.learnings];
+            const allUrls = [...visitedUrls, ...newUrls];
+
+            // Save intermediate state periodically
+            saveResearchState({
+              query,
+              learnings: allLearnings,
+              visitedUrls: allUrls,
+              progress,
+              language: detectedLanguage,
+              timestamp: Date.now()
+            });
+
+            if (newDepth > 0) {
+              logger.log('Starting deeper research', {
+                newDepth,
+                newBreadth,
+                currentQuery: serpQuery.query
+              });
+              
+              reportProgress({
+                currentDepth: Math.max(1, newDepth),
+                currentBreadth: Math.max(1, newBreadth),
+                currentQuery: serpQuery.query,
+              });
+
+              if (serpQuery.researchGoal) {
+                log(`Previous research goal: ${serpQuery.researchGoal}`);
+              }
+
+              const deeperResults = await deepResearch({
+                query: serpQuery.query,
+                learnings: allLearnings,
+                visitedUrls: allUrls,
+                onProgress: (deepProgress) => {
+                  reportProgress({
+                    ...deepProgress,
+                    currentQuery: serpQuery.query,
+                  });
+                },
+                language: detectedLanguage,
+              });
+
+              return {
+                learnings: [...allLearnings, ...deeperResults.learnings],
+                visitedUrls: [...allUrls, ...deeperResults.visitedUrls],
+              };
+            }
 
             return {
-              learnings: [...allLearnings, ...deeperResults.learnings],
-              visitedUrls: [...allUrls, ...deeperResults.visitedUrls],
+              learnings: allLearnings,
+              visitedUrls: allUrls,
             };
+          } catch (e) {
+            if (e instanceof Error) {
+              if (e.message.includes('timeout')) {
+                log(
+                  `Timeout error running query: ${serpQuery.query}: `,
+                  e,
+                );
+              } else if (e.message.includes('Rate limit exceeded: free-models-per-day')) {
+                // Save state on daily rate limit
+                saveResearchState({
+                  query,
+                  learnings,
+                  visitedUrls,
+                  progress,
+                  language: detectedLanguage,
+                  timestamp: Date.now()
+                });
+                throw e; // Re-throw to handle at top level
+              } else {
+                log(`Error running query: ${serpQuery.query}: `, e);
+              }
+            }
+            return {
+              learnings,
+              visitedUrls,
+            };
+          } finally {
+            reportProgress({
+              completedQueries: progress.completedQueries + 1,
+            });
           }
+        }),
+      ),
+    );
 
-          return {
-            learnings: allLearnings,
-            visitedUrls: allUrls,
-          };
-        } catch (e) {
-          if (e instanceof Error && e.message.includes('timeout')) {
-            log(
-              `Timeout error running query: ${serpQuery.query}: `,
-              e,
-            );
-          } else {
-            log(`Error running query: ${serpQuery.query}: `, e);
-          }
-          return {
-            learnings,
-            visitedUrls,
-          };
-        } finally {
-          reportProgress({
-            completedQueries: progress.completedQueries + 1,
-          });
-        }
+    const allResults = results.reduce(
+      (acc, result) => ({
+        learnings: [...acc.learnings, ...result.learnings],
+        visitedUrls: [...acc.visitedUrls, ...result.visitedUrls],
       }),
-    ),
-  );
+      { learnings: [], visitedUrls: [] } as ResearchResult,
+    );
 
-  const allResults = results.reduce(
-    (acc, result) => ({
-      learnings: [...acc.learnings, ...result.learnings],
-      visitedUrls: [...acc.visitedUrls, ...result.visitedUrls],
-    }),
-    { learnings: [], visitedUrls: [] } as ResearchResult,
-  );
+    // Remove duplicates
+    const result = {
+      learnings: [...new Set(allResults.learnings)],
+      visitedUrls: [...new Set(allResults.visitedUrls)],
+    };
 
-  // Remove duplicates
-  const result = {
-    learnings: [...new Set(allResults.learnings)],
-    visitedUrls: [...new Set(allResults.visitedUrls)],
-  };
+    // Save results to file
+    const outputFileName = `research-${session.uuid}-results.md`;
+    const markdownReport = await writeFinalReport({
+      prompt: query,
+      learnings: result.learnings,
+      visitedUrls: result.visitedUrls,
+      language: detectedLanguage,
+    });
+    fs.writeFileSync(outputFileName, markdownReport);
+    logger.log('Research completed', { 
+      uuid: session.uuid,
+      outputFile: outputFileName,
+      totalLearnings: result.learnings.length,
+      totalUrls: result.visitedUrls.length
+    });
 
-  // Save results to file
-  const outputFileName = `research-${session.uuid}-results.md`;
-  const markdownReport = await writeFinalReport({
-    prompt: query,
-    learnings: result.learnings,
-    visitedUrls: result.visitedUrls,
-    language: detectedLanguage,
-  });
-  fs.writeFileSync(outputFileName, markdownReport);
-  logger.log('Research completed', { 
-    uuid: session.uuid,
-    outputFile: outputFileName,
-    totalLearnings: result.learnings.length,
-    totalUrls: result.visitedUrls.length
-  });
-
-  return result;
+    return result;
+  } catch (error) {
+    if (error instanceof Error && 
+        error.message.includes('Rate limit exceeded: free-models-per-day')) {
+      logger.log('Research paused due to daily rate limit', {
+        uuid: session.uuid,
+        learningsCount: learnings.length,
+        urlsCount: visitedUrls.length
+      });
+      
+      // Return current results
+      return {
+        learnings,
+        visitedUrls,
+      };
+    }
+    throw error;
+  }
 }

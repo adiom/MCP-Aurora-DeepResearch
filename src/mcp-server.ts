@@ -33,22 +33,18 @@ server.tool(
   "Perform deep research on a topic using AI-powered web search",
   {
     query: z.string().min(1).describe("The research query to investigate"),
-    depth: z.number().int().min(1).max(5).describe("How deep to go in the research tree (1-5)"),
-    breadth: z.number().int().min(1).max(5).describe("How broad to make each research level (1-5)"),
     existingLearnings: z.array(z.string()).default([]).describe("Optional array of existing research findings to build upon")
   },
-  async ({ query, depth, breadth, existingLearnings = [] }) => {
+  async ({ query, existingLearnings = [] }) => {
     try {
       log("Starting research with query:", query);
-      log("Parameters:", { depth, breadth, existingLearningsCount: existingLearnings.length });
+      log("Parameters:", { existingLearningsCount: existingLearnings.length });
 
       // Track research progress
       let currentProgress = "";
       
       const result = await deepResearch({
         query,
-        depth,
-        breadth,
         learnings: existingLearnings,
         onProgress: (progress) => {
           const progressMsg = `Depth ${progress.currentDepth}/${progress.totalDepth}, Query ${progress.completedQueries}/${progress.totalQueries}: ${progress.currentQuery || ""}`;

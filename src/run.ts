@@ -31,20 +31,6 @@ async function run() {
   // Get initial query
   const initialQuery = await askQuestion('What would you like to research? ');
 
-  // Get breath and depth parameters
-  const breadth =
-    parseInt(
-      await askQuestion(
-        'Enter research breadth (recommended 2-10, default 4): ',
-      ),
-      10,
-    ) || 4;
-  const depth =
-    parseInt(
-      await askQuestion('Enter research depth (recommended 1-5, default 2): '),
-      10,
-    ) || 2;
-
   log(`Creating research plan...`);
 
   // Generate follow-up questions
@@ -76,8 +62,6 @@ ${followUpQuestions.map((q: string, i: number) => `Q: ${q}\nA: ${answers[i]}`).j
   
   const { learnings, visitedUrls } = await deepResearch({
     query: combinedQuery,
-    breadth,
-    depth,
     onProgress: (progress) => {
       output.updateProgress(progress);
     },
@@ -98,8 +82,7 @@ ${followUpQuestions.map((q: string, i: number) => `Q: ${q}\nA: ${answers[i]}`).j
   // Save report to file
   await fs.writeFile('output.md', report, 'utf-8');
 
-  console.log(`\n\nFinal Report:\n\n${report}`);
-  console.log('\nReport has been saved to output.md');
+  log('\nReport saved to output.md');
   rl.close();
 }
 

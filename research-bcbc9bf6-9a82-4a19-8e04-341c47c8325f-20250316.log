@@ -1,0 +1,13 @@
+[2025-03-16T04:38:32.957Z][bcbc9bf6-9a82-4a19-8e04-341c47c8325f] Language detection
+Data: {
+  "text": "исследование нужно провести по теме отвечай за свой базар и не будь фуфломёт - изучить нужно воровские и беспредельные сайты - писать на уличном языке и на фене",
+  "cyrillicCount": 1,
+  "latinCount": 0,
+  "russianWordsCount": 3,
+  "russianWordsFound": [
+    "и",
+    "не",
+    "на"
+  ]
+}
+[2025-03-16T04:38:32.964Z][bcbc9bf6-9a82-4a19-8e04-341c47c8325f] Detected Russian language
