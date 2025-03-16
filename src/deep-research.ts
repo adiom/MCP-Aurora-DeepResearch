@@ -283,19 +283,83 @@ export async function writeFinalReport({
   }
 }
 
-// Fixed research parameters
-const RESEARCH_CONFIG = {
-  depth: 3,
-  breadth: 3,
-  stepsCount: 8
-};
+// Research configuration based on user's answers
+interface ResearchConfig {
+  depth: number;
+  breadth: number;
+  stepsCount: number;
+}
+
+function parseResearchConfig(query: string): ResearchConfig {
+  // Default configuration
+  const defaultConfig: ResearchConfig = {
+    depth: 3,
+    breadth: 3,
+    stepsCount: 8
+  };
+
+  try {
+    // Look for depth preferences in the query
+    const depthMatch = query.match(/глубина исследования:.*?(\d+)|research depth:.*?(\d+)/i);
+    const breadthMatch = query.match(/широта исследования:.*?(\d+)|research breadth:.*?(\d+)/i);
+    const stepsMatch = query.match(/количество шагов:.*?(\d+)|number of steps:.*?(\d+)/i);
+
+    // Also look for qualitative descriptions
+    const isDeepResearch = /глубокое исследование|подробное исследование|deep research|detailed research/i.test(query);
+    const isBroadResearch = /широкое исследование|comprehensive research|broad research/i.test(query);
+    const isQuickResearch = /быстрое исследование|краткое исследование|quick research|brief research/i.test(query);
+
+    const config = { ...defaultConfig };
+
+    // Apply numeric values if found
+    if (depthMatch?.[1] || depthMatch?.[2]) {
+      const depth = parseInt(depthMatch[1] || depthMatch[2] || '0');
+      if (depth > 0 && depth <= 5) {
+        config.depth = depth;
+      }
+    }
+    if (breadthMatch?.[1] || breadthMatch?.[2]) {
+      const breadth = parseInt(breadthMatch[1] || breadthMatch[2] || '0');
+      if (breadth > 0 && breadth <= 5) {
+        config.breadth = breadth;
+      }
+    }
+    if (stepsMatch?.[1] || stepsMatch?.[2]) {
+      const steps = parseInt(stepsMatch[1] || stepsMatch[2] || '0');
+      if (steps > 0 && steps <= 12) {
+        config.stepsCount = steps;
+      }
+    }
+
+    // Apply qualitative adjustments
+    if (isDeepResearch) {
+      config.depth = Math.max(config.depth, 4);
+    }
+    if (isBroadResearch) {
+      config.breadth = Math.max(config.breadth, 4);
+      config.stepsCount = Math.max(config.stepsCount, 10);
+    }
+    if (isQuickResearch) {
+      config.depth = Math.min(config.depth, 2);
+      config.breadth = Math.min(config.breadth, 2);
+      config.stepsCount = Math.min(config.stepsCount, 6);
+    }
+
+    return config;
+  } catch (error) {
+    logger.error('Error parsing research config', error);
+    return defaultConfig;
+  }
+}
 
 async function generateResearchPlan({
   query,
   language,
+  stepsCount,
 }: {
   query: string;
   language?: string;
+  stepsCount: number;
 }): Promise<string[]> {
   try {
     // Wrap the API call with rate limiting
@@ -307,10 +371,10 @@ async function generateResearchPlan({
         model: o3MiniModel,
         system: systemPrompt(language),
         prompt: language === 'ru'
-          ? `На основе запроса пользователя "${query}" составьте детальный план исследования из ${RESEARCH_CONFIG.stepsCount} шагов. План должен быть логически структурирован, каждый шаг должен углублять понимание темы. Не включайте общие или повторяющиеся шаги.`
-          : `Based on the user query "${query}", create a detailed research plan with ${RESEARCH_CONFIG.stepsCount} steps. The plan should be logically structured, each step should deepen the understanding of the topic. Do not include generic or repetitive steps.`,
+          ? `На основе запроса пользователя "${query}" составьте детальный план исследования из ${stepsCount} шагов. План должен быть логически структурирован, каждый шаг должен углублять понимание темы. Не включайте общие или повторяющиеся шаги.`
+          : `Based on the user query "${query}", create a detailed research plan with ${stepsCount} steps. The plan should be logically structured, each step should deepen the understanding of the topic. Do not include generic or repetitive steps.`,
         schema: z.object({
-          steps: z.array(z.string()).length(RESEARCH_CONFIG.stepsCount)
+          steps: z.array(z.string()).length(stepsCount)
         }),
       });
     });
@@ -388,9 +452,20 @@ export async function deepResearch({
     query
   });
 
+  // Parse research configuration from query
+  const researchConfig = parseResearchConfig(query);
+  logger.log('Research configuration', {
+    config: researchConfig,
+    query
+  });
+
   try {
     // Generate and show research plan
-    const researchPlan = await generateResearchPlan({ query, language: detectedLanguage });
+    const researchPlan = await generateResearchPlan({ 
+      query, 
+      language: detectedLanguage,
+      stepsCount: researchConfig.stepsCount 
+    });
     logger.log('Research plan', { 
       uuid: session.uuid,
       plan: researchPlan
@@ -398,10 +473,10 @@ export async function deepResearch({
 
     const progress: ResearchProgress = {
       currentDepth: 1,
-      totalDepth: RESEARCH_CONFIG.depth,
+      totalDepth: researchConfig.depth,
       currentBreadth: 1,
-      totalBreadth: RESEARCH_CONFIG.breadth,
-      totalQueries: RESEARCH_CONFIG.stepsCount,
+      totalBreadth: researchConfig.breadth,
+      totalQueries: researchConfig.stepsCount,
       completedQueries: 0,
     };
     
@@ -416,7 +491,7 @@ export async function deepResearch({
 
     const serpQueries = await generateSerpQueries({
       query,
-      numQueries: RESEARCH_CONFIG.breadth,
+      numQueries: researchConfig.breadth,
       learnings,
       language: detectedLanguage,
       researchPlan,
@@ -443,8 +518,8 @@ export async function deepResearch({
 
             // Collect URLs from this search
             const newUrls = compact(result.data.map(item => item.url));
-            const newBreadth = Math.ceil(RESEARCH_CONFIG.breadth / 2);
-            const newDepth = RESEARCH_CONFIG.depth - 1;
+            const newBreadth = Math.ceil(researchConfig.breadth / 2);
+            const newDepth = researchConfig.depth - 1;
 
             const newLearnings = await processSerpResult({
               query: serpQuery.query,
