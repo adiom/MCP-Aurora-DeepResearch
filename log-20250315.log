@@ -1,0 +1,546 @@
+[2025-03-15T18:29:16.284Z] Generating SERP queries
+Data: {
+  "query": "\nInitial Query: манипуляция сознанием в диалогах на улице\nFollow-up Questions and Answers:\nQ: Какие конкретные виды манипуляции сознанием вас интересуют (например, НЛП, газлайтинг, убеждение)?\nA: все\nQ: Какова цель исследования? Вы хотите узнать, как распознавать манипуляции, защищаться от них, или что-то еще?\nA: все\nQ: Вас интересуют диалоги на улице в целом, или есть какой-то специфический контекст (например, уличные торговцы, политические агитаторы, мошенники)?\nA: все\n",
+  "numQueries": 2,
+  "learningsCount": 0
+}
+[2025-03-15T18:29:19.913Z] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "Виды манипуляции сознанием в уличных диалогах: НЛП, газлайтинг, убеждение, распознавание, защита",
+      "researchGoal": "Определить полный спектр техник манипуляции сознанием, используемых в различных контекстах уличных диалогов, а также методы их распознавания и защиты от них."
+    },
+    {
+      "query": "Кейсы манипуляции сознанием на улице: уличные торговцы, политические агитаторы, мошенники",
+      "researchGoal": "Изучить реальные примеры и сценарии применения различных техник манипуляции сознанием в специфических контекстах уличных диалогов (торговля, агитация, мошенничество)."
+    }
+  ]
+}
+[2025-03-15T18:29:31.780Z] Processing SERP result
+Data: {
+  "query": "Виды манипуляции сознанием в уличных диалогах: НЛП, газлайтинг, убеждение, распознавание, защита",
+  "numResults": 4,
+  "urls": [
+    "https://pikabu.ru/tag/%D0%9C%D0%B0%D0%BD%D0%B8%D0%BF%D1%83%D0%BB%D1%8F%D1%86%D0%B8%D1%8F%2C%D0%9D%D0%9B%D0%9F",
+    "https://mriya.run/ru/post/5-signaliv-so-vi-gazlajtite-samogo-sebe",
+    "https://mriya.run/ru/post/manipulacii-pasivnij-i-aktivnij-zahist-vid-manipuluvanna",
+    "http://flibusta.site/b/802342/read"
+  ]
+}
+[2025-03-15T18:29:34.472Z] Processing SERP result
+Data: {
+  "query": "Кейсы манипуляции сознанием на улице: уличные торговцы, политические агитаторы, мошенники",
+  "numResults": 1,
+  "urls": [
+    "https://fantlab.ru/autor238/responses?page=all"
+  ]
+}
+[2025-03-15T18:29:40.002Z] Generating SERP queries
+Data: {
+  "query": "Виды манипуляции сознанием в уличных диалогах: НЛП, газлайтинг, убеждение, распознавание, защита",
+  "numQueries": 1,
+  "learningsCount": 3
+}
+[2025-03-15T18:29:43.121Z] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "Боевое НЛП техники защиты от манипуляции в уличных диалогах: газлайтинг, зеркалирование, \"нога в дверь\", социальное доказательство, привлечение авторитета, фрейминг, ложный выбор, изоляция, эмоциональный шантаж, гиперболизация, псевдологика, \"дымовая завеса\""
+    }
+  ]
+}
+[2025-03-15T18:29:43.939Z] Generating SERP queries
+Data: {
+  "query": "Кейсы манипуляции сознанием на улице: уличные торговцы, политические агитаторы, мошенники",
+  "numQueries": 1,
+  "learningsCount": 3
+}
+[2025-03-15T18:29:44.582Z] Processing SERP result
+Data: {
+  "query": "Боевое НЛП техники защиты от манипуляции в уличных диалогах: газлайтинг, зеркалирование, \"нога в дверь\", социальное доказательство, привлечение авторитета, фрейминг, ложный выбор, изоляция, эмоциональный шантаж, гиперболизация, псевдологика, \"дымовая завеса\"",
+  "numResults": 0,
+  "urls": []
+}
+[2025-03-15T18:29:47.672Z] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "Психологические техники уличных торговцев, политических агитаторов и мошенников для манипуляции сознанием",
+      "researchGoal": "Определить конкретные приемы и методы, используемые для манипуляции сознанием на улице, с учетом информации о методах манипуляции из произведений Оруэлла (новояз, двоемыслие, переписывание истории, пропаганда, дезинформация, цензура), а также аллегории \"Скотного двора\" (пропаганда, ложь, насилие) и темы конформизма в \"Да здравствует фикус!\". Это позволит выявить параллели между литературными примерами и реальными кейсами."
+    }
+  ]
+}
+[2025-03-15T18:30:04.448Z] Processing SERP result
+Data: {
+  "query": "Психологические техники уличных торговцев, политических агитаторов и мошенников для манипуляции сознанием",
+  "numResults": 2,
+  "urls": [
+    "https://www.mediagram.ru/netcat_files/108/110/h_1eaef80e566efbfa041bafd712f9b13c",
+    "https://barnaul.spbume.ru/file/pages/79/haritonov.pdf"
+  ]
+}
+[2025-03-15T18:43:11.803Z] Generating SERP queries
+Data: {
+  "query": "\nInitial Query: оследние достижения в разработке квантовых компьютеров и их применение в машинном обучении за 2023-2024 годы\nFollow-up Questions and Answers:\nQ: Какие конкретные аспекты разработки квантовых компьютеров вас интересуют (например, аппаратное обеспечение, программное обеспечение, алгоритмы)?\nA: все\nQ: Какие типы задач машинного обучения вы рассматриваете в контексте применения квантовых вычислений (например, классификация, регрессия, кластеризация)?\nA: все\nQ: Вас интересуют теоретические исследования, экспериментальные результаты или коммерческие применения?\nA: все\n",
+  "numQueries": 4,
+  "learningsCount": 0
+}
+[2025-03-15T18:43:16.460Z] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024",
+      "researchGoal": "Определить последние достижения в области аппаратного и программного обеспечения, а также алгоритмов для квантовых компьютеров в 2023-2024 годах."
+    },
+    {
+      "query": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024",
+      "researchGoal": "Изучить применение квантовых вычислений в различных задачах машинного обучения (классификация, регрессия, кластеризация) в 2023-2024 годах."
+    },
+    {
+      "query": "квантовые вычисления машинное обучение теоретические исследования экспериментальные результаты коммерческие применения 2023 2024",
+      "researchGoal": "Проанализировать теоретические и экспериментальные исследования, а также коммерческие применения квантовых вычислений в машинном обучении в 2023-2024 годах."
+    },
+    {
+      "query": "обзоры \"квантовые вычисления\" \"машинное обучение\" 2023 2024",
+      "researchGoal": "Найти обзорные статьи и доклады конференций, обобщающие достижения в области квантовых вычислений и машинного обучения за 2023-2024 годы, чтобы получить общее представление о состоянии дел и выявить ключевые тренды."
+    }
+  ]
+}
+[2025-03-15T18:43:16.462Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 4,
+    "totalQueries": 4,
+    "completedQueries": 0,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  },
+  "update": {
+    "totalQueries": 4,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024",
+    "currentDepth": 1,
+    "currentBreadth": 1
+  }
+}
+[2025-03-15T18:43:29.999Z] Processing SERP result
+Data: {
+  "query": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024",
+  "numResults": 5,
+  "urls": [
+    "https://london-data-consulting.com/ru/%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%BD%D0%BE%D0%B5-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D1%87%D1%82%D0%BE-%D1%8D%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-%D0%BA%D0%B0%D0%BA-%D0%B5%D0%B3%D0%BE-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B-%D0%BF%D0%BE%D0%BB%D0%BD%D0%BE%D0%B5-%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-2023/",
+    "https://www.editverse.com/ru/%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%BD%D0%BE%D0%B5-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%2C-%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0-%D0%B8-%D0%BA%D0%B0%D0%BA-%D0%B5%D0%B3%D0%BE-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B2-2024-%D0%B3%D0%BE%D0%B4%D1%83/",
+    "https://it-novosti.ru/kvantovoe-mashinnoe-obuchenie-pervie-uspeshnie-algoritmi-i-ikh-potentsial",
+    "https://gitverse.ru/blog/articles/ai/219-osnovnye-modeli-mashinnogo-obucheniya-mlm-primenenie-plyusy-i-minusy",
+    "http://wiki.cs.hse.ru/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B_%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F/2023"
+  ]
+}
+[2025-03-15T18:43:33.269Z] Processing SERP result
+Data: {
+  "query": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024",
+  "numResults": 4,
+  "urls": [
+    "https://www.tadviser.ru/index.php/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D1%8F:%D0%9A%D0%B2%D0%B0%D0%BD%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D1%8B_%D0%B2_%D0%A1%D0%A8%D0%90",
+    "https://www.cnews.ru/news/top/2024-03-29_uchenye_otkryli_sposob_razmeshcheniya",
+    "https://www.securities.io/ru/companies-in-quantum-computing/",
+    "https://quantum-crypto.ru/articles/obzor-kvantovykh-vychisleniy-2023/"
+  ]
+}
+[2025-03-15T18:43:36.897Z] Starting deeper research
+Data: {
+  "newDepth": 1,
+  "newBreadth": 2,
+  "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024"
+}
+[2025-03-15T18:43:36.898Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 2,
+    "totalBreadth": 4,
+    "totalQueries": 4,
+    "completedQueries": 0,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024"
+  },
+  "update": {
+    "currentDepth": 1,
+    "currentBreadth": 2,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024"
+  }
+}
+[2025-03-15T18:43:36.898Z] Generating SERP queries
+Data: {
+  "query": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024",
+  "numQueries": 2,
+  "learningsCount": 3
+}
+[2025-03-15T18:43:39.542Z] Starting deeper research
+Data: {
+  "newDepth": 1,
+  "newBreadth": 2,
+  "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+}
+[2025-03-15T18:43:39.542Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 2,
+    "totalBreadth": 4,
+    "totalQueries": 4,
+    "completedQueries": 0,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  },
+  "update": {
+    "currentDepth": 1,
+    "currentBreadth": 2,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  }
+}
+[2025-03-15T18:43:39.543Z] Generating SERP queries
+Data: {
+  "query": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024",
+  "numQueries": 2,
+  "learningsCount": 3
+}
+[2025-03-15T18:43:41.288Z] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024 достижения",
+      "researchGoal": "Определить последние достижения и разработки в области квантового машинного обучения, связанные с методами классификации, регрессии и кластеризации, в 2023 и 2024 годах. Особое внимание уделяется новым алгоритмам, улучшениям существующих методов и практическим применениям."
+    },
+    {
+      "query": "сравнение квантовых алгоритмов классификации регрессии кластеризации с классическими 2023 2024",
+      "researchGoal": "Сравнить производительность и эффективность квантовых алгоритмов классификации, регрессии и кластеризации с их классическими аналогами в 2023 и 2024 годах. Выявить конкретные случаи, когда квантовые алгоритмы демонстрируют значительное преимущество, а также области, где классические методы остаются предпочтительными."
+    }
+  ]
+}
+[2025-03-15T18:43:41.288Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 0,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024 достижения"
+  },
+  "update": {
+    "totalQueries": 2,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024 достижения",
+    "currentDepth": 1,
+    "currentBreadth": 1
+  }
+}
+[2025-03-15T18:43:41.288Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 0,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 0,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024"
+  }
+}
+[2025-03-15T18:43:42.992Z] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "сравнение аппаратного обеспечения квантовых компьютеров IonQ, Atom Computing и российских разработок 2023-2024",
+      "researchGoal": "Сравнить характеристики и производительность аппаратного обеспечения квантовых компьютеров от разных производителей, включая IonQ, Atom Computing, и российские разработки, за 2023-2024 годы. Особое внимание уделить количеству кубитов, точности операций и типам используемых кубитов (ионы, холодные атомы и т.д.)."
+    },
+    {
+      "query": "гибридные квантово-классические алгоритмы и вариационные алгоритмы 2023-2024 применение",
+      "researchGoal": "Изучить развитие и применение гибридных квантово-классических и вариационных алгоритмов в 2023-2024 годах. Выяснить, какие конкретные задачи решаются с помощью этих алгоритмов, и какие компании (помимо упомянутых BMW и Airbus) лидируют в их разработке и внедрении."
+    }
+  ]
+}
+[2025-03-15T18:43:42.993Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 0,
+    "currentQuery": "сравнение аппаратного обеспечения квантовых компьютеров IonQ, Atom Computing и российских разработок 2023-2024"
+  },
+  "update": {
+    "totalQueries": 2,
+    "currentQuery": "сравнение аппаратного обеспечения квантовых компьютеров IonQ, Atom Computing и российских разработок 2023-2024",
+    "currentDepth": 1,
+    "currentBreadth": 1
+  }
+}
+[2025-03-15T18:43:42.994Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 0,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 0,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  }
+}
+[2025-03-15T18:43:43.456Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 1,
+    "currentQuery": "сравнение аппаратного обеспечения квантовых компьютеров IonQ, Atom Computing и российских разработок 2023-2024"
+  },
+  "update": {
+    "completedQueries": 1
+  }
+}
+[2025-03-15T18:43:43.456Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 1,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 1,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  }
+}
+[2025-03-15T18:43:50.041Z] Processing SERP result
+Data: {
+  "query": "сравнение квантовых алгоритмов классификации регрессии кластеризации с классическими 2023 2024",
+  "numResults": 5,
+  "urls": [
+    "https://journals.ayu.edu.kz/index.php/news/article/view/3444",
+    "https://psyjournals.ru/journals/mda/archive/2023_n3/Akhmed",
+    "https://quantum-ods.github.io/qmlcourse/book/qcalgo/ru/quantum_algorithms_overview.html",
+    "https://it-novosti.ru/kvantovoe-mashinnoe-obuchenie-pervie-uspeshnie-algoritmi-i-ikh-potentsial",
+    "https://biomolecula.ru/articles/klasternyi-analiz-i-dilemma-biologicheskogo-polzovatelia"
+  ]
+}
+[2025-03-15T18:43:57.697Z] Processing SERP result
+Data: {
+  "query": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024 достижения",
+  "numResults": 3,
+  "urls": [
+    "http://www.machinelearning.ru/wiki/index.php?title=%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%BD%D0%BE%D0%B5_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%28%D0%BA%D1%83%D1%80%D1%81_%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D0%B9%2C_%D0%9A.%D0%92.%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D1%86%D0%BE%D0%B2%29",
+    "https://london-data-consulting.com/ru/%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%BD%D0%BE%D0%B5-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D1%87%D1%82%D0%BE-%D1%8D%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-%D0%BA%D0%B0%D0%BA-%D0%B5%D0%B3%D0%BE-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B-%D0%BF%D0%BE%D0%BB%D0%BD%D0%BE%D0%B5-%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-2023/",
+    "https://www.editverse.com/ru/%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%BD%D0%BE%D0%B5-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%2C-%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0-%D0%B8-%D0%BA%D0%B0%D0%BA-%D0%B5%D0%B3%D0%BE-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B2-2024-%D0%B3%D0%BE%D0%B4%D1%83/"
+  ]
+}
+[2025-03-15T18:43:59.110Z] Processing SERP result
+Data: {
+  "query": "гибридные квантово-классические алгоритмы и вариационные алгоритмы 2023-2024 применение",
+  "numResults": 1,
+  "urls": [
+    "https://quantum-crypto.ru/articles/obzor-kvantovykh-vychisleniy-2023/?ysclid=lx8lq2iods159966407"
+  ]
+}
+[2025-03-15T18:44:05.019Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 2,
+    "currentQuery": "сравнение аппаратного обеспечения квантовых компьютеров IonQ, Atom Computing и российских разработок 2023-2024"
+  },
+  "update": {
+    "completedQueries": 2
+  }
+}
+[2025-03-15T18:44:05.021Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 2,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 2,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  }
+}
+[2025-03-15T18:44:05.022Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 3,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  },
+  "update": {
+    "completedQueries": 3
+  }
+}
+[2025-03-15T18:44:05.488Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 4,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  },
+  "update": {
+    "completedQueries": 4
+  }
+}
+[2025-03-15T18:44:05.694Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 5,
+    "currentQuery": "квантовые компьютеры аппаратное обеспечение программное обеспечение алгоритмы 2023 2024"
+  },
+  "update": {
+    "completedQueries": 5
+  }
+}
+[2025-03-15T18:44:30.292Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 1,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024 достижения"
+  },
+  "update": {
+    "completedQueries": 1
+  }
+}
+[2025-03-15T18:44:30.454Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 1,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 1,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024"
+  }
+}
+[2025-03-15T18:44:37.770Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 2,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024 достижения"
+  },
+  "update": {
+    "completedQueries": 2
+  }
+}
+[2025-03-15T18:44:37.771Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 2,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 2,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024"
+  }
+}
+[2025-03-15T18:44:37.772Z] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 3,
+    "currentQuery": "квантовое машинное обучение классификация регрессия кластеризация 2023 2024"
+  },
+  "update": {
+    "completedQueries": 3
+  }
+}

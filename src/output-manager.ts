@@ -27,10 +27,19 @@ export class OutputManager {
   }
   
   updateProgress(progress: ResearchProgress) {
+    const calculatePercentage = (current: number, total: number) => {
+      const value = Math.min(Math.max(0, current), total);
+      return Math.round((value / total) * 100);
+    };
+
+    const depthProgress = calculatePercentage(progress.currentDepth, progress.totalDepth);
+    const breadthProgress = calculatePercentage(progress.currentBreadth, progress.totalBreadth);
+    const queriesProgress = calculatePercentage(progress.completedQueries, progress.totalQueries);
+
     this.progressArea = [
-      `Depth:    [${this.getProgressBar(progress.totalDepth - progress.currentDepth, progress.totalDepth)}] ${Math.round((progress.totalDepth - progress.currentDepth) / progress.totalDepth * 100)}%`,
-      `Breadth:  [${this.getProgressBar(progress.totalBreadth - progress.currentBreadth, progress.totalBreadth)}] ${Math.round((progress.totalBreadth - progress.currentBreadth) / progress.totalBreadth * 100)}%`,
-      `Queries:  [${this.getProgressBar(progress.completedQueries, progress.totalQueries)}] ${Math.round(progress.completedQueries / progress.totalQueries * 100)}%`,
+      `Depth:    [${this.getProgressBar(depthProgress, 100)}] ${depthProgress}%`,
+      `Breadth:  [${this.getProgressBar(breadthProgress, 100)}] ${breadthProgress}%`,
+      `Queries:  [${this.getProgressBar(queriesProgress, 100)}] ${queriesProgress}%`,
       progress.currentQuery ? `Current:  ${progress.currentQuery}` : ''
     ];
     this.drawProgress();
@@ -38,8 +47,8 @@ export class OutputManager {
   
   private getProgressBar(value: number, total: number): string {
     const width = process.stdout.columns ? Math.min(30, process.stdout.columns - 20) : 30;
-    const filled = Math.round((width * value) / total);
-    return '█'.repeat(filled) + ' '.repeat(width - filled);
+    const filled = Math.max(0, Math.min(width, Math.round((width * value) / total)));
+    return '█'.repeat(filled) + ' '.repeat(Math.max(0, width - filled));
   }
   
   private drawProgress() {

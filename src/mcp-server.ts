@@ -33,9 +33,9 @@ server.tool(
   "Perform deep research on a topic using AI-powered web search",
   {
     query: z.string().min(1).describe("The research query to investigate"),
-    depth: z.number().min(1).max(5).describe("How deep to go in the research tree (1-5)"),
-    breadth: z.number().min(1).max(5).describe("How broad to make each research level (1-5)"),
-    existingLearnings: z.array(z.string()).optional().describe("Optional array of existing research findings to build upon")
+    depth: z.number().int().min(1).max(5).describe("How deep to go in the research tree (1-5)"),
+    breadth: z.number().int().min(1).max(5).describe("How broad to make each research level (1-5)"),
+    existingLearnings: z.array(z.string()).default([]).describe("Optional array of existing research findings to build upon")
   },
   async ({ query, depth, breadth, existingLearnings = [] }) => {
     try {

@@ -26,14 +26,17 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.1.9",
+    "@google/generative-ai": "^0.24.0",
     "@mendable/firecrawl-js": "^1.16.0",
     "@modelcontextprotocol/sdk": "^1.5.0",
+    "@types/uuid": "^10.0.0",
     "ai": "^4.1.17",
+    "dotenv": "^16.4.7",
     "js-tiktoken": "^1.0.17",
     "lodash-es": "^4.17.21",
     "p-limit": "^6.2.0",
-    "zod": "^3.24.1",
-    "dotenv": "^16.4.7"
+    "uuid": "^11.1.0",
+    "zod": "^3.24.1"
   },
   "engines": {
     "node": "22.x"

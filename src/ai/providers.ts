@@ -1,6 +1,7 @@
 import { createOpenAI, type OpenAIProviderSettings } from '@ai-sdk/openai';
 import { getEncoding } from 'js-tiktoken';
-
+import { type LanguageModelV1 } from 'ai';
+import { createGemini } from './gemini-provider.js';
 import { RecursiveCharacterTextSplitter } from './text-splitter.js';
 
 interface CustomOpenAIProviderSettings extends OpenAIProviderSettings {
@@ -13,14 +14,24 @@ const openai = createOpenAI({
   baseURL: process.env.OPENAI_ENDPOINT || 'https://api.openai.com/v1',
 } as CustomOpenAIProviderSettings);
 
+// Initialize Gemini with proper model name
+const geminiModelName = process.env.GOOGLE_MODEL || 'gemini-pro';
+console.log('Initializing Gemini with model:', geminiModelName);
+
+const gemini = createGemini({
+  apiKey: process.env.GOOGLE_API_KEY!,
+  model: geminiModelName,
+});
+
 const customModel = process.env.OPENAI_MODEL || 'o3-mini';
 
 // Models
-
-export const o3MiniModel = openai(customModel, {
-  reasoningEffort: customModel.startsWith('o') ? 'medium' : undefined,
-  structuredOutputs: true,
-});
+export const o3MiniModel: LanguageModelV1 = process.env.USE_GEMINI === 'true' 
+  ? gemini as unknown as LanguageModelV1
+  : openai(customModel, {
+      reasoningEffort: customModel.startsWith('o') ? 'medium' : undefined,
+      structuredOutputs: true,
+    });
 
 const MinChunkSize = 140;
 const encoder = getEncoding('o200k_base');

@@ -1,0 +1,780 @@
+[2025-03-15T18:51:20.856Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Starting research
+Data: {
+  "uuid": "31255d10-a961-4b7b-a646-d9ccafed0de9",
+  "query": "\nInitial Query: Психолингвистика в AI\nFollow-up Questions and Answers:\nQ: Could you specify which area of AI you're interested in? For example, are you interested in psycholinguistics applied to Natural Language Processing (NLP), AI-generated language assessment, or perhaps the use of AI to model human language acquisition?\nA: all\nQ: Are you interested in a specific aspect of psycholinguistics in relation to AI? Such as, the cognitive plausibility of AI language models, or ethical considerations of using psycholinguistic principles in AI design?\nA: all\nQ: What is the final goal of this research? Are you looking for practical applications, theoretical comparisons, or something else?\nA: all\n",
+  "depth": 3,
+  "breadth": 2
+}
+[2025-03-15T18:51:20.858Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Generating SERP queries
+Data: {
+  "query": "\nInitial Query: Психолингвистика в AI\nFollow-up Questions and Answers:\nQ: Could you specify which area of AI you're interested in? For example, are you interested in psycholinguistics applied to Natural Language Processing (NLP), AI-generated language assessment, or perhaps the use of AI to model human language acquisition?\nA: all\nQ: Are you interested in a specific aspect of psycholinguistics in relation to AI? Such as, the cognitive plausibility of AI language models, or ethical considerations of using psycholinguistic principles in AI design?\nA: all\nQ: What is the final goal of this research? Are you looking for practical applications, theoretical comparisons, or something else?\nA: all\n",
+  "numQueries": 2,
+  "learningsCount": 0
+}
+[2025-03-15T18:51:23.830Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "psycholinguistics in AI applications overview",
+      "researchGoal": "To get a comprehensive understanding of how psycholinguistics is used across various AI domains, covering practical applications, theoretical underpinnings, and ethical considerations."
+    },
+    {
+      "query": "cognitive plausibility and ethical considerations psycholinguistics AI",
+      "researchGoal": "To focus specifically on the cognitive science aspects and ethical debates surrounding the use of psycholinguistics in AI, including how well AI models reflect human language processing and the ethical implications of these applications."
+    }
+  ]
+}
+[2025-03-15T18:51:23.832Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 3,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  },
+  "update": {
+    "totalQueries": 2,
+    "currentQuery": "psycholinguistics in AI applications overview",
+    "currentDepth": 1,
+    "currentBreadth": 1
+  }
+}
+[2025-03-15T18:51:40.287Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Processing SERP result
+Data: {
+  "query": "psycholinguistics in AI applications overview",
+  "numResults": 3,
+  "urls": [
+    "https://cognitiontoday.com/ai-psycholinguistics-ai-is-more-human-than-we-realize/",
+    "http://www.csstoday.com/Item/2833.aspx",
+    "https://www.userlytics.com/resources/podcasts/unlocking-ux-insights-with-psycholinguistics-ai/"
+  ]
+}
+[2025-03-15T18:51:40.732Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Processing SERP result
+Data: {
+  "query": "cognitive plausibility and ethical considerations psycholinguistics AI",
+  "numResults": 3,
+  "urls": [
+    "https://www.researchgate.net/publication/379072138_Artificial_Intelligence_in_Practice_Opportunities_Challenges_and_Ethical_Considerations",
+    "https://www.sciencedirect.com/science/article/pii/S1364661322000456",
+    "https://arxiv.org/html/2409.02387v1"
+  ]
+}
+[2025-03-15T18:51:45.753Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Starting deeper research
+Data: {
+  "newDepth": 2,
+  "newBreadth": 1,
+  "currentQuery": "psycholinguistics in AI applications overview"
+}
+[2025-03-15T18:51:45.754Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 2,
+    "totalDepth": 3,
+    "currentBreadth": 1,
+    "totalBreadth": 2,
+    "totalQueries": 2,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  },
+  "update": {
+    "currentDepth": 2,
+    "currentBreadth": 1,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  }
+}
+[2025-03-15T18:51:45.754Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Starting research
+Data: {
+  "uuid": "31255d10-a961-4b7b-a646-d9ccafed0de9",
+  "query": "psycholinguistics in AI applications overview",
+  "depth": 2,
+  "breadth": 1,
+  "language": "en"
+}
+[2025-03-15T18:51:45.754Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Generating SERP queries
+Data: {
+  "query": "psycholinguistics in AI applications overview",
+  "numQueries": 1,
+  "learningsCount": 3
+}
+[2025-03-15T18:51:47.820Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "psycholinguistics principles in AI language model development AND applications",
+      "researchGoal": "To get a comprehensive overview of how psycholinguistic principles are integrated into the development and application of AI language models, covering both theoretical underpinnings and practical implementations."
+    }
+  ]
+}
+[2025-03-15T18:51:47.822Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics principles in AI language model development AND applications"
+  },
+  "update": {
+    "totalQueries": 1,
+    "currentQuery": "psycholinguistics principles in AI language model development AND applications",
+    "currentDepth": 1,
+    "currentBreadth": 1
+  }
+}
+[2025-03-15T18:51:47.829Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  }
+}
+[2025-03-15T18:52:04.293Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Processing SERP result
+Data: {
+  "query": "psycholinguistics principles in AI language model development AND applications",
+  "numResults": 5,
+  "urls": [
+    "https://www.researchgate.net/publication/379239839_Artificial_Intelligence_in_Linguistics_Research_Applications_in_Language_Acquisition_and_Analysis",
+    "https://www.youtube.com/watch?v=B0BTDpvLcVA",
+    "https://www.cs.cornell.edu/content/ai-seminar-using-psycholinguistics-analyze-and-improve-neural-network-language-models",
+    "https://oecs.mit.edu/pub/y1uhdz0y",
+    "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full"
+  ]
+}
+[2025-03-15T18:52:06.500Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Starting deeper research
+Data: {
+  "newDepth": 1,
+  "newBreadth": 1,
+  "currentQuery": "psycholinguistics principles in AI language model development AND applications"
+}
+[2025-03-15T18:52:06.500Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics principles in AI language model development AND applications"
+  },
+  "update": {
+    "currentDepth": 1,
+    "currentBreadth": 1,
+    "currentQuery": "psycholinguistics principles in AI language model development AND applications"
+  }
+}
+[2025-03-15T18:52:06.500Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  }
+}
+[2025-03-15T18:52:06.501Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Starting research
+Data: {
+  "uuid": "31255d10-a961-4b7b-a646-d9ccafed0de9",
+  "query": "psycholinguistics principles in AI language model development AND applications",
+  "depth": 1,
+  "breadth": 1,
+  "language": "en"
+}
+[2025-03-15T18:52:06.501Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Generating SERP queries
+Data: {
+  "query": "psycholinguistics principles in AI language model development AND applications",
+  "numQueries": 1,
+  "learningsCount": 3
+}
+[2025-03-15T18:52:06.512Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Starting deeper research
+Data: {
+  "newDepth": 2,
+  "newBreadth": 1,
+  "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+}
+[2025-03-15T18:52:06.513Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 2,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  },
+  "update": {
+    "currentDepth": 2,
+    "currentBreadth": 1,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  }
+}
+[2025-03-15T18:52:06.514Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Starting research
+Data: {
+  "uuid": "31255d10-a961-4b7b-a646-d9ccafed0de9",
+  "query": "cognitive plausibility and ethical considerations psycholinguistics AI",
+  "depth": 2,
+  "breadth": 1,
+  "language": "en"
+}
+[2025-03-15T18:52:06.514Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Generating SERP queries
+Data: {
+  "query": "cognitive plausibility and ethical considerations psycholinguistics AI",
+  "numQueries": 1,
+  "learningsCount": 3
+}
+[2025-03-15T18:52:08.513Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures",
+      "researchGoal": "Explore the intersection of cognitive plausibility and ethical considerations in psycholinguistics, specifically focusing on AI's functional linguistic competence and memory structures, given the provided context on LLM's strengths and weaknesses."
+    }
+  ]
+}
+[2025-03-15T18:52:08.514Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+  },
+  "update": {
+    "totalQueries": 1,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures",
+    "currentDepth": 1,
+    "currentBreadth": 1
+  }
+}
+[2025-03-15T18:52:08.514Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  }
+}
+[2025-03-15T18:52:08.921Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "psycholinguistics principles incorporation in development AND application of AI language models AND impact on performance AND limitations",
+      "researchGoal": "To investigate the specific psycholinguistic principles used in developing and applying AI language models, how their incorporation affects model performance, and the limitations that arise from differences between human language processing and current AI capabilities."
+    }
+  ]
+}
+[2025-03-15T18:52:08.922Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics principles incorporation in development AND application of AI language models AND impact on performance AND limitations"
+  },
+  "update": {
+    "totalQueries": 1,
+    "currentQuery": "psycholinguistics principles incorporation in development AND application of AI language models AND impact on performance AND limitations",
+    "currentDepth": 1,
+    "currentBreadth": 1
+  }
+}
+[2025-03-15T18:52:08.922Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics principles in AI language model development AND applications"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics principles in AI language model development AND applications"
+  }
+}
+[2025-03-15T18:52:08.922Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  }
+}
+[2025-03-15T18:52:24.622Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Processing SERP result
+Data: {
+  "query": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures",
+  "numResults": 5,
+  "urls": [
+    "https://arxiv.org/pdf/2409.02387",
+    "https://www.youtube.com/watch?v=R1JwGNGqo9w",
+    "https://www.researchgate.net/publication/2546240_Cognitive_Linguistics_Psychology_and_Cognitive_Science",
+    "http://arxiv.org/pdf/2309.02427",
+    "https://direct.mit.edu/opmi/article/doi/10.1162/opmi_a_00160/124234/The-Limitations-of-Large-Language-Models-for"
+  ]
+}
+[2025-03-15T18:52:25.209Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Processing SERP result
+Data: {
+  "query": "psycholinguistics principles incorporation in development AND application of AI language models AND impact on performance AND limitations",
+  "numResults": 5,
+  "urls": [
+    "https://www.researchgate.net/publication/379239839_Artificial_Intelligence_in_Linguistics_Research_Applications_in_Language_Acquisition_and_Analysis",
+    "https://library.fiveable.me/introduction-humanities/unit-11/psycholinguistics/study-guide/tnw7i0G5jdZsEYuh",
+    "https://arxiv.org/html/2408.07144v1",
+    "https://arxiv.org/abs/2303.00077",
+    "https://cognitiontoday.com/ai-psycholinguistics-ai-is-more-human-than-we-realize/"
+  ]
+}
+[2025-03-15T18:52:27.214Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Starting deeper research
+Data: {
+  "newDepth": 1,
+  "newBreadth": 1,
+  "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+}
+[2025-03-15T18:52:27.215Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+  },
+  "update": {
+    "currentDepth": 1,
+    "currentBreadth": 1,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+  }
+}
+[2025-03-15T18:52:27.215Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 2,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  }
+}
+[2025-03-15T18:52:27.215Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Starting research
+Data: {
+  "uuid": "31255d10-a961-4b7b-a646-d9ccafed0de9",
+  "query": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures",
+  "depth": 1,
+  "breadth": 1,
+  "language": "en"
+}
+[2025-03-15T18:52:27.216Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Generating SERP queries
+Data: {
+  "query": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures",
+  "numQueries": 1,
+  "learningsCount": 3
+}
+[2025-03-15T18:52:27.665Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 1,
+    "currentQuery": "psycholinguistics principles incorporation in development AND application of AI language models AND impact on performance AND limitations"
+  },
+  "update": {
+    "completedQueries": 1
+  }
+}
+[2025-03-15T18:52:27.665Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 1,
+    "currentQuery": "psycholinguistics principles in AI language model development AND applications"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 1,
+    "currentQuery": "psycholinguistics principles in AI language model development AND applications"
+  }
+}
+[2025-03-15T18:52:27.665Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 1,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 1,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  }
+}
+[2025-03-15T18:52:29.004Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Generated SERP queries
+Data: {
+  "queries": [
+    {
+      "query": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures",
+      "researchGoal": "To understand the intersection of cognitive plausibility, ethical considerations, psycholinguistics, AI, functional linguistic competence, and memory structures, as requested by the user."
+    }
+  ]
+}
+[2025-03-15T18:52:29.005Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+  },
+  "update": {
+    "totalQueries": 1,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures",
+    "currentDepth": 1,
+    "currentBreadth": 1
+  }
+}
+[2025-03-15T18:52:29.005Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+  }
+}
+[2025-03-15T18:52:29.005Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 0,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  }
+}
+[2025-03-15T18:52:45.690Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Processing SERP result
+Data: {
+  "query": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures",
+  "numResults": 5,
+  "urls": [
+    "https://arxiv.org/pdf/2409.02387",
+    "https://www.youtube.com/watch?v=R1JwGNGqo9w",
+    "https://www.researchgate.net/publication/2546240_Cognitive_Linguistics_Psychology_and_Cognitive_Science",
+    "https://direct.mit.edu/opmi/article/doi/10.1162/opmi_a_00160/124234/The-Limitations-of-Large-Language-Models-for",
+    "http://arxiv.org/pdf/2309.02427"
+  ]
+}
+[2025-03-15T18:52:49.729Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 1,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+  },
+  "update": {
+    "completedQueries": 1
+  }
+}
+[2025-03-15T18:52:49.731Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 1,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 1,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+  }
+}
+[2025-03-15T18:52:49.731Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 1,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 1,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  }
+}
+[2025-03-15T18:52:56.543Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Research completed
+Data: {
+  "uuid": "31255d10-a961-4b7b-a646-d9ccafed0de9",
+  "outputFile": "research-31255d10-a961-4b7b-a646-d9ccafed0de9-results.md",
+  "totalLearnings": 3,
+  "totalUrls": 11
+}
+[2025-03-15T18:52:56.544Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 2,
+    "currentQuery": "psycholinguistics principles in AI language model development AND applications"
+  },
+  "update": {
+    "completedQueries": 2
+  }
+}
+[2025-03-15T18:52:56.544Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 2,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 2,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  }
+}
+[2025-03-15T18:53:53.185Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Research completed
+Data: {
+  "uuid": "31255d10-a961-4b7b-a646-d9ccafed0de9",
+  "outputFile": "research-31255d10-a961-4b7b-a646-d9ccafed0de9-results.md",
+  "totalLearnings": 3,
+  "totalUrls": 11
+}
+[2025-03-15T18:53:53.186Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 3,
+    "currentQuery": "psycholinguistics in AI applications overview"
+  },
+  "update": {
+    "completedQueries": 3
+  }
+}
+[2025-03-15T18:53:55.916Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 2,
+    "currentQuery": "cognitive plausibility AND ethical considerations psycholinguistics AI AND functional linguistic competence AND memory structures"
+  },
+  "update": {
+    "completedQueries": 2
+  }
+}
+[2025-03-15T18:53:55.917Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 2,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  },
+  "update": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 2,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  }
+}
+[2025-03-15T18:54:24.726Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Research completed
+Data: {
+  "uuid": "31255d10-a961-4b7b-a646-d9ccafed0de9",
+  "outputFile": "research-31255d10-a961-4b7b-a646-d9ccafed0de9-results.md",
+  "totalLearnings": 3,
+  "totalUrls": 3
+}
+[2025-03-15T18:54:24.727Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Progress update
+Data: {
+  "currentProgress": {
+    "currentDepth": 1,
+    "totalDepth": 1,
+    "currentBreadth": 1,
+    "totalBreadth": 1,
+    "totalQueries": 1,
+    "completedQueries": 3,
+    "currentQuery": "cognitive plausibility and ethical considerations psycholinguistics AI"
+  },
+  "update": {
+    "completedQueries": 3
+  }
+}
+[2025-03-15T18:54:53.838Z][31255d10-a961-4b7b-a646-d9ccafed0de9] Research completed
+Data: {
+  "uuid": "31255d10-a961-4b7b-a646-d9ccafed0de9",
+  "outputFile": "research-31255d10-a961-4b7b-a646-d9ccafed0de9-results.md",
+  "totalLearnings": 6,
+  "totalUrls": 14
+}
